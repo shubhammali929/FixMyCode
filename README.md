@@ -1,41 +1,70 @@
-# FixMyCode
+# Getting Started with Create React App
 
-Scope:
-  1. Code Editor: Develop a web-based code editor using HTML, CSS, and JavaScript where users can paste their code.
-  2. Code Operations: Implement buttons that allow users to perform various code operations, such as debugging,
-    fixing indentation, changing variable names to meaningful ones, and adding comments to the code or even
-    optimizing their code.
-  3. Code Transformation: Utilize the OpenAI Codex API to perform code transformations based on the user's
-    selections. The API will be responsible for making the actual code changes.
-  4. User Authentication: Provide two options for users: signing in and continuing without signing in. Implement user
-    authentication using technologies like OAuth, Firebase, or a custom backend system.
-  5. Code History: If a user signs in, store the code history in a database (e.g., Firebase Realtime Database or
-    MongoDB). Display this history in a "History" tab, allowing users to revisit their past code transformations.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Objectives:
-  1. To create a user-friendly web application that assists developers in optimizing and improving their code.
-  2. To integrate the OpenAI Codex API for code transformation.
-  3. To implement user authentication for a personalized experience.
-  4. To provide a code history feature for signed-in users to track their code improvements over time.
-     
-Technologies (May change)
-  1. Front-end:
-    • HTML, CSS, JavaScript: For creating the user interface and code editor.
-    • CodeMirror or Ace Editor: Libraries for embedding a code editor.
-    • React: Framework to build dynamic user interfaces.
-    • Axios or Fetch API: To make API requests to your server and the OpenAI Codex API.
-    • Loading Animation Library: Use libraries like Lottie or CSS animations for loading animations.
-  2. Back-end :
-    • Node.js or Python as a server-side language.
-    • Express.js : Web framework for building server-side logic.
-    • Database (Firebase Realtime Database or MongoDB): To store user data and code history for authenticated
-      users.
-    • Authentication library (Firebase Authentication or Auth0): For user sign-in functionality.
-  3. OpenAI Codex API:
-    • Integrate the Codex API to perform code transformations based on user input.
-  4. User Authentication:
-    • OAuth providers (Google, Facebook, GitHub) or custom authentication.
-    • Firebase Authentication, Auth0, or custom authentication system.
-  5. Deployment:
-    • Hosting platform (Netlify, Vercel, Heroku, AWS, etc.): To deploy your web application.
-    • Domain name (fixmycode.online): For a professional touch.
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
