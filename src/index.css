@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  display: flex;
+}
+.sideBar {
+  background-color: rgb(42, 42, 42);
+  width: 20%;
+  height: 100vh;
+}
+.mainComponent {
+  background-color: rgb(77, 77, 77);
+  width: 80%;
+  height: 100vh;
+}
+.navbar {
+  background-color: black;
+  height: 5vh;
+}
+.inputBox {
+  padding: 10px 5px;
+  height: 10vh;
+}
+.inputBox input {
+  width: 100%;
+  background-color: rgb(227, 227, 227);
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  padding: 15px 10px;
+}
+.fa-paper-plane {
+  position: absolute;
+  right: 20px;
+  color: rgb(108, 108, 108);
+  padding: 15px 10px;
+}
+.CodeEditorMainClass {
+  height: 80vh;
+}
+.ButtonGroup {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.Btn {
+  align-items: center;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 15px;
+  justify-content: center;
+  line-height: 0.5em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 5px 0px 0px 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.Btn:active,
+.Btn:hover {
+  outline: 0;
+}
+
+.Btn span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 14px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.Btn:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .Btn {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+.Btn i{
+  font-size: 15px;
+  padding: 5px;
+}
