@@ -1,29 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Fuggles&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 .App {
   display: flex;
+  height: 100vh;
 }
 .sideBar {
   background-color: rgb(42, 42, 42);
   width: 20%;
-  height: 100vh;
+  height: 100%;
 }
+
 .mainComponent {
   background-color: rgb(77, 77, 77);
   width: 80%;
-  height: 100vh;
+  height: 100%;
 }
 .navbar {
   background-color: black;
-  height: 5vh;
+  color: white;
+  height: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+}
+.navbar .title {
+  font-size: 35px;
+  font-family: "Fuggles", cursive;
 }
 .inputBox {
   padding: 10px 5px;
-  height: 10vh;
+  height: 10%;
 }
+
 .inputBox input {
   width: 100%;
   background-color: rgb(227, 227, 227);
@@ -33,6 +47,12 @@
   border: none;
   padding: 15px 10px;
 }
+.InputComponent p {
+  opacity: 0.5;
+  color: white;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+}
 .fa-paper-plane {
   position: absolute;
   right: 20px;
@@ -40,7 +60,7 @@
   padding: 15px 10px;
 }
 .CodeEditorMainClass {
-  height: 80vh;
+  height: 75%;
 }
 .ButtonGroup {
   display: flex;
@@ -61,7 +81,7 @@
   font-size: 15px;
   justify-content: center;
   line-height: 0.5em;
-  max-width: 100%;
+  /* max-width: 100%; */
   min-width: 140px;
   padding: 5px 0px 0px 3px;
   text-decoration: none;
@@ -96,7 +116,80 @@
     min-width: 196px;
   }
 }
-.Btn i{
+.Btn i {
   font-size: 15px;
   padding: 5px;
+}
+
+.button {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #17795e;
+  background-color: #209978;
+  overflow: hidden;
+}
+
+.button,
+.button__icon,
+.button__text {
+  transition: all 0.3s;
+}
+
+.button .button__text {
+  transform: translateX(22px);
+  color: #fff;
+  font-weight: 600;
+}
+
+.button .button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: #17795e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button .svg {
+  width: 20px;
+  fill: #fff;
+}
+
+.button:hover {
+  background: #17795e;
+}
+
+.button:hover .button__text {
+  color: transparent;
+}
+
+.button:hover .button__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.button:active .button__icon {
+  background-color: #146c54;
+}
+
+.button:active {
+  border: 1px solid #146c54;
+}
+.CodeEditorMainClass {
+  margin: 10px 5px;
+  padding: 10px;
+}
+.CodeEditorMainClass textarea {
+  background-color: #272727;
+  color: white;
+  font-size: 1.5rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
 }
