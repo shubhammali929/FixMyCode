@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 
 export default function History() {
   return (
-    <div className='historyTab'>
+    <div className="historyTab">
       <i class="fa-solid fa-clock-rotate-left"></i>
-      <p>This is history tab</p>
+      <p>This is History Tab</p>
     </div>
-  )
+  );
 }
