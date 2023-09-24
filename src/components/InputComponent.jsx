@@ -2,17 +2,12 @@ import React, { useState } from 'react';
 
 export default function InputComponent() {
   const [userText, setUserText] = useState('');
-  const API_KEY = "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";
+  const API_KEY = "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";
   const handleOutgoingChat = () => {
     const trimmedText = userText.trim();
     console.log(trimmedText);
     getChatResponse();
     
-  };
-  const handleEnterKey = (e) => {
-    if (e.key === 'Enter') {
-      handleOutgoingChat();
-    }
   };
 
   const getChatResponse = async () => {
@@ -40,6 +35,7 @@ export default function InputComponent() {
         const response = await (await fetch(API_URL, requestOptions)).json();
         console.log(response.choices[0].text);
     } catch (error) { // Add error class to the paragraph element and set error text
+      
       console.log(error);
     }
   };

@@ -1,14 +1,13 @@
 import React from 'react'
-import Button from './Button'
 
-export default function Buttons() {
+export default function Buttons({fixBug, optimise, addComments,changeVar,fixIndentation}) {
   return (
     <div className='ButtonGroup'>
-      <Button text="Fix Bug" icon="fa-solid fa-bug-slash"/>
-      <Button text="Optimise" icon="fa-solid fa-seedling"/>
-      <Button text="Add Comments" icon="fa-solid fa-code "/>
-      <Button text="Change Var names" icon="fa-solid fa-i "/>
-      <Button text="Fix indentation" icon="fa-solid fa-toolbox "/>
+      <button onClick={fixBug} class="button" type="button"><span class="button__text text">Fix Bug</span><span class="button__icon"><i class="fa-solid fa-bug-slash"></i></span></button>
+      <button onClick={optimise} class="button" type="button"><span class="button__text text">Optimise</span><span class="button__icon"><i class="fa-solid fa-seedling"></i></span></button>
+      <button onClick={addComments} class="button" type="button"><span class="button__text text">Add Comments</span><span class="button__icon"><i class="fa-solid fa-code"></i></span></button>
+      <button onClick={changeVar} class="button" type="button"><span class="button__text text">Change Var names</span><span class="button__icon"><i class="fa-solid fa-i"></i></span></button>
+      <button onClick={fixIndentation} class="button" type="button"><span class="button__text text">Fix indentation</span><span class="button__icon"><i class="fa-solid fa-toolbox"></i></span></button>
     </div>
   )
 }
