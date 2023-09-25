@@ -12,9 +12,13 @@
 .App {
   display: flex;
   height: 100vh;
+   /* background-image: url("/public/codingbg.jpg"); */
+  background-size: 20% 30%;
+  background-repeat: repeat;
 }
 .sideBar {
   background-color: rgb(42, 42, 42);
+  
   width: 20%;
   padding: 20px 20px;
   height: 100%;
@@ -24,6 +28,8 @@
   background-color: rgb(77, 77, 77);
   width: 80%;
   height: 100%;
+  
+ 
 }
 .navbar {
   background-color: black;
@@ -46,6 +52,7 @@
 
 .inputBox {
   padding: 20px 25px 10px 25px;
+  height: 20%;
 }
 .inputBox input {
   width: 100%;
@@ -55,12 +62,15 @@
   font-size: 16px;
   border: none;
   padding: 15px 20px 15px 20px;
+  height: 60%;
 }
 .InputComponent p {
+  height: 40%;
   opacity: 0.5;
   color: white;
   font-family: "Arial Narrow", Arial, sans-serif;
   text-align: center;
+  font-size: 0.7rem;
 }
 .fa-paper-plane {
   position: absolute;
@@ -68,9 +78,7 @@
   color: rgb(108, 108, 108);
   padding: 15px 30px;
 }
-.CodeEditorMainClass {
-  height: 65%;
-}
+
 .ButtonGroup {
   display: flex;
   width: 100%;
@@ -151,9 +159,10 @@
 .CodeEditorMainClass {
   margin: 10px 5px;
   padding: 10px;
+  height: 70%;
 }
 .CodeEditorMainClass textarea {
-  background-color: #272727;
+  background-color: #272727e5;
   color: white;
   font-size: 1.2rem;
   width: 100%;

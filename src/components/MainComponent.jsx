@@ -9,6 +9,7 @@ import Buttons from './Buttons'
 export default function MainComponent() {
 
   const [textValue, setTextValue] = useState('');
+  const [customCmdText, setCustomCmdText] = useState('');
 
   const fixBug = () => {
     let initialText = textValue;
@@ -18,7 +19,7 @@ export default function MainComponent() {
   const optimise = () => {
     let initialText = textValue;
     console.log(initialText); 
-    getChatResponse("Optimise the following code and reduce number of lines : "+initialText, setTextValue);
+    getChatResponse("Optimise the following code, use short hand operators and reduce number of lines  : "+initialText, setTextValue);
   };
   const addComments = () => {
     let initialText = textValue;
@@ -35,6 +36,11 @@ export default function MainComponent() {
     console.log(initialText); 
     getChatResponse("Fix the Intendation of the code. code -> : "+initialText, setTextValue);
   };
+  const runCustomCmd = () => {
+    let initialText = textValue;
+    console.log(initialText); 
+    getChatResponse(customCmdText+" and rewrite the new code. code -> : "+initialText, setTextValue);
+  };
   
   
   return (
@@ -42,7 +48,7 @@ export default function MainComponent() {
         <NavBar/>
         <CodeEditor textValue={textValue} setTextValue={setTextValue}/>
         <Buttons fixBug={fixBug} optimise={optimise} addComments={addComments} changeVar={changeVar} fixIndentation={fixIndentation}/>
-      <InputComponent/>
+      <InputComponent customCmdText={customCmdText} setCustomCmdText={setCustomCmdText} runCustomCmd={runCustomCmd}/>
     </div>
   )
 }
@@ -50,7 +56,7 @@ export default function MainComponent() {
 
 //sending prompt to api and receiving response
 const getChatResponse = async (text, setTextValue) => {
-  const API_KEY = "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";
+  const API_KEY = "";
   const API_URL = "https://api.openai.com/v1/completions";
 
   // Define the properties and data for the API request
@@ -74,7 +80,7 @@ const getChatResponse = async (text, setTextValue) => {
   try {
       const response = await (await fetch(API_URL, requestOptions)).json();
       let responseText = response.choices[0].text.trim();
-      console.log(responseText);
+      console.log(response);
       setTextValue(responseText);
   } catch (error) { // Add error class to the paragraph element and set error text
     
