@@ -16,7 +16,7 @@ export default function MainComponent() {
     let initialText = textValue;
     console.log(initialText); 
     setIsAnimating(true);
-    getChatResponse("fix the following code make corrections if any and rewrite the code with comments where the changes were made. code-> : "+initialText, setTextValue);
+    getChatResponse("fix the following code make corrections if any and rewrite the original code followed with new corrected code with comments where the changes were made. code-> : "+initialText, setTextValue);
   };
   const optimise = () => {
     let initialText = textValue;
@@ -51,7 +51,7 @@ export default function MainComponent() {
   
   //sending prompt to api and receiving response
   const getChatResponse = async (text, setTextValue) => {
-    const API_KEY = "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";
+    const API_KEY = process.env.REACT_APP_API_KEY;
     const API_URL = "https://api.openai.com/v1/completions";
 
     // Define the properties and data for the API request
