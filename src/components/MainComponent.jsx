@@ -88,7 +88,6 @@ export default function MainComponent() {
   
   return (
     <div className='mainComponent'>
-        <NavBar />
         <CodeEditor textValue={textValue} setTextValue={setTextValue} isAnimating={isAnimating}/> <br />
         <Buttons fixBug={fixBug} optimise={optimise} addComments={addComments} changeVar={changeVar} fixIndentation={fixIndentation}/>
       <InputComponent customCmdText={customCmdText} setCustomCmdText={setCustomCmdText} runCustomCmd={runCustomCmd}/>
