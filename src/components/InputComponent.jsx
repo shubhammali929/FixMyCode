@@ -23,7 +23,8 @@ export default function InputComponent({customCmdText,setCustomCmdText, runCusto
         <i className="fa-solid fa-paper-plane fa-bounce" id='sendBtn' onClick={handleOutgoingChat}></i>
       </div>
       <p className="para"> 
-        <p>&copy; {new Date().getFullYear()} Fix my code !. All rights reserved. | For inquiries, contact us at shubhammali929@gmail.com</p></p>
+        &copy; {new Date().getFullYear()} Fix my code !. All rights reserved. | For inquiries, contact us at shubhammali929@gmail.com
+      </p>
     </div>
   );
 }

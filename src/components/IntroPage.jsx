@@ -53,7 +53,7 @@ console.log(auth?.currentUser?.email);
         <p className='p3'>Not a member? <a href="">Sign up now</a> <button onClick={logout}>logout</button></p>
         <div className="nosignin">
         <p className='or'>or</p> <br />
-        <p className='p4'><Link to="/dashboard">Continue without signing in</Link></p>
+        <p className='p4'><Link to="/dashboard" >Continue without signing in</Link></p>
         </div>
       </div>
       
