@@ -1,19 +1,30 @@
-import {React, useState} from 'react';
-import { useHistory } from 'react-router-dom';
-import { auth, googleProvider } from './FirebaseConfig';
-import {createUserWithEmailAndPassword, signInWithPopup, signOut} from 'firebase/auth'
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {React, useState, useEffect} from 'react';
+import { auth, googleProvider } from './FirebaseConfig'; //for creating auth instance
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut, getAuth, onAuthStateChanged} from 'firebase/auth' //for firebase signin
+import reactRouterDom, {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+
+
+
 export default function IntroPage() {
-const history = useHistory();
+
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
-const onContinue = () => {
-  history.push('/dashboard'); // Navigate to /continue route
-};
+const [user, setUser] = useState(null);
+const history = useHistory();
 
-const SignIn = async () => {
+const SignUp = async () => {
     try{
       await createUserWithEmailAndPassword(auth, email, password);
+      console.log("User created successfully")
+    }catch(err){
+      console.error(err);
+    }
+}
+const SignIn = async () => {
+    try{
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log("Signing in with email and password ...")
     }catch(err){
       console.error(err);
     }
@@ -21,6 +32,7 @@ const SignIn = async () => {
 const signInWithGoogle = async () => {
   try{
     await signInWithPopup(auth,googleProvider);
+    history.push('/dashboard');
   }catch(err){
     console.error(err);
   }
@@ -32,7 +44,22 @@ const logout = async () => {
     console.error(err);
   }
 }
-console.log(auth?.currentUser?.email);
+useEffect(() => {
+  onAuthStateChanged(auth, user => {
+    if(user){
+      history.push('/dashboard');
+      if(user.displayName){
+        console.log('Hello ',user.displayName);
+      }else{
+        console.log('HEllo ', user.email);
+      }
+      setUser(user);
+    }else{
+      console.log("You are logged out");
+      setUser(null);
+    }
+  })
+},[]);
   return (
     <div className='parentLogin'>
       <div className="mainLoginContainer v-flex">
@@ -48,9 +75,14 @@ console.log(auth?.currentUser?.email);
           <input type="email" onChange={(e) => setEmail(e.target.value)} />
           <p className='h-flex p1'>Password <a href='#'>Forgot?</a></p>
           <input type="password" onChange={(e) => setPassword(e.target.value)}/>
-          <button onClick={SignIn} >Login</button>
+          {user ? (        
+              <button onClick={logout}>Logout</button>           
+          ) : ( <>
+            <button onClick={SignIn}>Login</button>
+            <button onClick={SignUp}>SignUp</button></>
+          )}
         </div>
-        <p className='p3'>Not a member? <a href="">Sign up now</a> <button onClick={logout}>logout</button></p>
+        <p className='p3'>Not a member? <a href="">Sign up now</a> </p>
         <div className="nosignin">
         <p className='or'>or</p> <br />
         <p className='p4'><Link to="/dashboard" >Continue without signing in</Link></p>
