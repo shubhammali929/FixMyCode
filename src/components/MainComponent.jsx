@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import NavBar from './NavBar'
 import InputComponent from './InputComponent'
 import CodeEditor from './CodeEditor'
 import Buttons from './Buttons'
@@ -90,6 +89,7 @@ export default function MainComponent() {
     <div className='mainComponent'>
         <CodeEditor textValue={textValue} setTextValue={setTextValue} isAnimating={isAnimating}/> <br />
         <Buttons fixBug={fixBug} optimise={optimise} addComments={addComments} changeVar={changeVar} fixIndentation={fixIndentation}/>
+        
       <InputComponent customCmdText={customCmdText} setCustomCmdText={setCustomCmdText} runCustomCmd={runCustomCmd}/>
     </div>
   )

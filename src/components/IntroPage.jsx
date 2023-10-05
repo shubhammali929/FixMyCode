@@ -56,6 +56,7 @@ useEffect(() => {
       setUser(user);
     }else{
       console.log("You are logged out");
+      history.push('/intropage');
       setUser(null);
     }
   })
@@ -66,7 +67,7 @@ useEffect(() => {
         <h1>Welcome to FixMyCode</h1>
         <h2>Sign In With</h2>
         <div className="socialSigninContainer h-flex">
-          <button className='btn1'><i className="fab fa-facebook-square fa-lg"></i>‎ ‎ ‎ Facebook</button>
+          <button className='btn1'><i className="fab fa-facebook-square fa-lg m-r"></i>Facebook</button>
           <button className='btn2' onClick={signInWithGoogle}><img width="48" height="48" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>‎ ‎  Google</button>
           
         </div>
@@ -84,7 +85,7 @@ useEffect(() => {
         </div>
         <p className='p3'>Not a member? <a href="">Sign up now</a> </p>
         <div className="nosignin">
-        <p className='or'>or</p> <br />
+        <p className='or'>or</p> <br /> 
         <p className='p4'><Link to="/dashboard" >Continue without signing in</Link></p>
         </div>
       </div>
