@@ -2,11 +2,10 @@ import React, {useState} from 'react'
 import InputComponent from './InputComponent'
 import CodeEditor from './CodeEditor'
 import Buttons from './Buttons'
-
-
-
+import { useFirebase} from '../context/Firebase';
 export default function MainComponent() {
-
+  
+  const firebase = useFirebase();
   const [textValue, setTextValue] = useState('');
   const [customCmdText, setCustomCmdText] = useState('');
   const [isAnimating, setIsAnimating] = useState(false);
@@ -15,7 +14,7 @@ export default function MainComponent() {
     let initialText = textValue;
     console.log(initialText); 
     setIsAnimating(true);
-    getChatResponse("fix the following code make corrections if any and rewrite the original code followed with new corrected code with comments where the changes were made. code-> : "+initialText, setTextValue);
+    getChatResponse("fix the following code make corrections if any and rewrite the original code followed with new corrected code with comments where the changes were made. also add the title for the code at first line in 20 characters.  code-> : "+initialText, setTextValue);
   };
   const optimise = () => {
     let initialText = textValue;
@@ -76,6 +75,18 @@ export default function MainComponent() {
         let responseText = response.choices[0].text.trim();
         console.log(response);
         setTextValue(responseText);
+        
+        
+        // Check if the user is logged in before adding to history
+      if (firebase.user) {
+        const userName = firebase.user?.displayName || firebase.user?.email;
+        console.log('HEY ! ' + userName);
+        console.log(firebase.user);
+        firebase.addToHistory(userName, responseText);
+      }
+
+
+
     } catch (error) { // Add error class to the paragraph element and set error text
       
       console.log(error);

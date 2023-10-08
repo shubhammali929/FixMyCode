@@ -1,6 +1,7 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { initializeApp } from "firebase/app";
 import {getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 const FirebaseContext = createContext(null);
 
 const firebaseConfig = {
@@ -16,10 +17,31 @@ const firebaseConfig = {
 export const useFirebase = () => useContext(FirebaseContext);
 
 const firebaseApp = initializeApp(firebaseConfig);
-const firebaseAuth = getAuth(firebaseApp);
-const googleProvider = new GoogleAuthProvider();
-export const FirebaseProvider = (props) => {
+export const firebaseAuth = getAuth(firebaseApp);
+const firestore = getFirestore(firebaseApp);
 
+const googleProvider = new GoogleAuthProvider();
+
+const addToHistory = async(userName, data) => {
+    await addDoc(collection(firestore, 'History'), {
+        Email : userName,
+        code : data
+    })
+}
+const getHistory = () => {
+    return getDocs(collection(firestore, 'History'));
+}
+
+
+
+
+
+
+
+
+
+export const FirebaseProvider = (props) => {
+    const [user, setUser] = useState(null);
     const signup = async (email, password) => {
         try{await createUserWithEmailAndPassword(firebaseAuth, email, password);
         }catch(err){
@@ -48,8 +70,9 @@ export const FirebaseProvider = (props) => {
           }
     }
     return (
-        <FirebaseContext.Provider value={{signup, login, googleSignIn, logout}}>
+        <FirebaseContext.Provider value={{signup, login, googleSignIn, logout, addToHistory, user, setUser, getHistory}}>
             {props.children}
         </FirebaseContext.Provider>
     )
 }
+

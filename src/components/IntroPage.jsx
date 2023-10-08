@@ -1,33 +1,31 @@
 import {React, useState, useEffect} from 'react';
-import { auth, googleProvider } from './FirebaseConfig'; //for creating auth instance
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut, getAuth, onAuthStateChanged} from 'firebase/auth' //for firebase signin
-import reactRouterDom, {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {onAuthStateChanged} from 'firebase/auth' //for firebase signin
+import {BrowserRouter as Router, Link} from "react-router-dom";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import { useFirebase } from '../context/Firebase';
+import { useFirebase, firebaseAuth, user, setUser } from '../context/Firebase';
 
 
 export default function IntroPage() {
 
 const [email, setEmail] = useState(""); 
-const [password, setPassword] = useState(""); 
-const [user, setUser] = useState(null);
+const [password, setPassword] = useState("");
 const history = useHistory();
 const firebase = useFirebase();
 
 useEffect(() => {
-  onAuthStateChanged(auth, user => {
+  onAuthStateChanged(firebaseAuth, (user) => {
     if(user){
       history.push('/dashboard');
       if(user.displayName){
-        console.log('Hello ',user.displayName);
+        console.log('Hello ', user.displayName);
       }else{
         console.log('HEllo ', user.email);
       }
-      setUser(user);
+      firebase.setUser(user);
     }else{
       console.log("You are logged out");
       history.push('/intropage');
-      setUser(null);
+      firebase.setUser(null);
     }
   })
 },[]);
@@ -47,7 +45,7 @@ useEffect(() => {
           <input type="email" onChange={(e) => setEmail(e.target.value)} />
           <p className='h-flex p1'>Password <a href='#'>Forgot?</a></p>
           <input type="password" onChange={(e) => setPassword(e.target.value)}/>
-          {user ? (        
+          {firebase.user ? (        
               <button onClick={() => {firebase.logout();}}>Logout</button>           
           ) : ( <>
             <button onClick={() => {firebase.login(email, password);}}>Login</button>

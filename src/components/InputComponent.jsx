@@ -16,7 +16,7 @@ export default function InputComponent({customCmdText,setCustomCmdText, runCusto
       <div className="inputBox">
         <input
           type="text"
-          placeholder='Paste your code above and Enter Your Custom Command here !!'
+          placeholder='Paste your code above and Enter Your Custom Command here !! for eg. "Convert my code to python"'
           value={userText}
           onChange={(e) => setUserText(e.target.value)}
         />
