@@ -82,7 +82,7 @@ export default function MainComponent() {
         const userName = firebase.user?.displayName || firebase.user?.email;
         console.log('HEY ! ' + userName);
         console.log(firebase.user);
-        firebase.addToHistory(userName, responseText);
+        firebase.addToHistory(firebase.user.uid, userName, responseText);
       }
 
 
@@ -100,7 +100,6 @@ export default function MainComponent() {
     <div className='mainComponent'>
         <CodeEditor textValue={textValue} setTextValue={setTextValue} isAnimating={isAnimating}/> <br />
         <Buttons fixBug={fixBug} optimise={optimise} addComments={addComments} changeVar={changeVar} fixIndentation={fixIndentation}/>
-        
       <InputComponent customCmdText={customCmdText} setCustomCmdText={setCustomCmdText} runCustomCmd={runCustomCmd}/>
     </div>
   )

@@ -22,8 +22,9 @@ const firestore = getFirestore(firebaseApp);
 
 const googleProvider = new GoogleAuthProvider();
 
-const addToHistory = async(userName, data) => {
+const addToHistory = async(id, userName, data) => {
     await addDoc(collection(firestore, 'History'), {
+        UID : id,
         Email : userName,
         code : data
     })

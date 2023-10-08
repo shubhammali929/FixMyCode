@@ -3,11 +3,7 @@ import History from './History';
 import NoHistory from './NoHistory';
 import { useFirebase } from '../context/Firebase';
 
-
-
 export default function HistoryList() {
-
-
 
   const firebase = useFirebase();
   const [history, setHistory] = useState([]);
@@ -20,21 +16,8 @@ export default function HistoryList() {
       {firebase.user ? (
         <div className='historylist'>
                 {history.map((hist) => (
-                  <History text={hist.data().code.substring(0,20)}/>
-                  // <li>{hist.data().code}</li>
-                  
-                  
+                  <History key={hist.id} text={hist.data().code.substring(0,20)+" ... "+hist.id}/>
                 ))}
-                {/* <History text={"aasasas"}/>
-                <History />
-                <History />
-                <History />
-                <History />
-                <History />
-                <History />
-                <History />
-                <History />
-                <History /> */}
         </div>
       ) : (
         <NoHistory />
