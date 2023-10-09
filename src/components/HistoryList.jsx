@@ -16,7 +16,7 @@ export default function HistoryList() {
       {firebase.user ? (
         <div className='historylist'>
                 {history.map((hist) => (
-                  <History key={hist.id} text={hist.data().code.substring(0,20)+" ... "+hist.id}/>
+                  <History key={hist.id} id={hist.id} text={hist.data().code.substring(0,20)+" ... "+hist.id}/>
                 ))}
         </div>
       ) : (

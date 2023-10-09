@@ -6,49 +6,48 @@ import { useFirebase} from '../context/Firebase';
 export default function MainComponent() {
   
   const firebase = useFirebase();
-  const [textValue, setTextValue] = useState('');
   const [customCmdText, setCustomCmdText] = useState('');
   const [isAnimating, setIsAnimating] = useState(false);
 
   const fixBug = () => {
-    let initialText = textValue;
+    let initialText = firebase.textValue;
     console.log(initialText); 
     setIsAnimating(true);
-    getChatResponse("fix the following code make corrections if any and rewrite the original code followed with new corrected code with comments where the changes were made. also add the title for the code at first line in 20 characters.  code-> : "+initialText, setTextValue);
+    getChatResponse("fix the following code make corrections if any and rewrite the original code followed with new corrected code with comments where the changes were made. also add the title for the code at first line in 20 characters.  code-> : "+initialText);
   };
   const optimise = () => {
-    let initialText = textValue;
+    let initialText = firebase.textValue;
     console.log(initialText); 
     setIsAnimating(true);
-    getChatResponse("Optimise the following code, use short hand operators and reduce number of lines  : "+initialText, setTextValue);
+    getChatResponse("Optimise the following code, use short hand operators and reduce number of lines  : "+initialText);
   };
   const addComments = () => {
-    let initialText = textValue;
+    let initialText = firebase.textValue;
     console.log(initialText); 
     setIsAnimating(true);
-    getChatResponse("add comments in between the code so that any one can read easily code -> : "+initialText, setTextValue);
+    getChatResponse("add comments in between the code so that any one can read easily code -> : "+initialText);
   };
   const changeVar = () => {
-    let initialText = textValue;
+    let initialText = firebase.textValue;
     console.log(initialText); 
     setIsAnimating(true);
-    getChatResponse("change variable names to meaning ful one and rewrite code again. code -> : "+initialText, setTextValue);
+    getChatResponse("change variable names to meaning ful one and rewrite code again. code -> : "+initialText);
   };
   const fixIndentation = () => {
-    let initialText = textValue;
+    let initialText = firebase.textValue;
     console.log(initialText); 
     setIsAnimating(true);
-    getChatResponse("Fix the Intendation of the code. code -> : "+initialText, setTextValue);
+    getChatResponse("Fix the Intendation of the code. code -> : "+initialText);
   };
   const runCustomCmd = () => {
-    let initialText = textValue;
+    let initialText = firebase.textValue;
     console.log(initialText); 
     setIsAnimating(true);
-    getChatResponse(customCmdText+" and rewrite the new code. code -> : "+initialText, setTextValue);
+    getChatResponse(customCmdText+" and rewrite the new code. code -> : "+initialText);
   };
   
   //sending prompt to api and receiving response
-  const getChatResponse = async (text, setTextValue) => {
+  const getChatResponse = async (text) => {
     const API_KEY = process.env.REACT_APP_API_KEY;
     const API_URL = "https://api.openai.com/v1/completions";
 
@@ -74,7 +73,7 @@ export default function MainComponent() {
         const response = await (await fetch(API_URL, requestOptions)).json();
         let responseText = response.choices[0].text.trim();
         console.log(response);
-        setTextValue(responseText);
+        firebase.setTextValue(responseText);
         
         
         // Check if the user is logged in before adding to history
@@ -98,7 +97,7 @@ export default function MainComponent() {
   
   return (
     <div className='mainComponent'>
-        <CodeEditor textValue={textValue} setTextValue={setTextValue} isAnimating={isAnimating}/> <br />
+        <CodeEditor  isAnimating={isAnimating}/> <br />
         <Buttons fixBug={fixBug} optimise={optimise} addComments={addComments} changeVar={changeVar} fixIndentation={fixIndentation}/>
       <InputComponent customCmdText={customCmdText} setCustomCmdText={setCustomCmdText} runCustomCmd={runCustomCmd}/>
     </div>
