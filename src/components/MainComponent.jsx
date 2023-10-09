@@ -13,7 +13,7 @@ export default function MainComponent() {
     let initialText = firebase.textValue;
     console.log(initialText); 
     setIsAnimating(true);
-    getChatResponse("fix the following code make corrections if any and rewrite the original code followed with new corrected code with comments where the changes were made. also add the title for the code at first line in 20 characters.  code-> : "+initialText);
+    getChatResponse("fix the following code make corrections if any and rewrite the new corrected code with comments where the changes were made. also add the title for the code at first line in 20 characters.  code-> : "+initialText);
   };
   const optimise = () => {
     let initialText = firebase.textValue;

@@ -14,6 +14,7 @@ const firebase = useFirebase();
 
 useEffect(() => {
   onAuthStateChanged(firebaseAuth, (user) => {
+    console.log("UseEffect 1 called")
     if(user){
       history.push('/dashboard');
       if(user.displayName){

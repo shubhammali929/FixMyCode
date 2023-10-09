@@ -41,11 +41,6 @@ const getHistoryById = async (id) => {
   }
 
 
-
-
-
-
-
 export const FirebaseProvider = (props) => {
     const [user, setUser] = useState(null);
     const [textValue, setTextValue] = useState('');
