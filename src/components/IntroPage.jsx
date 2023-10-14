@@ -1,8 +1,9 @@
 import {React, useState, useEffect} from 'react';
 import {onAuthStateChanged} from 'firebase/auth' //for firebase signin
-import {BrowserRouter as Router, Link} from "react-router-dom";
+import {BrowserRouter as Link} from "react-router-dom";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import { useFirebase, firebaseAuth, user, setUser } from '../context/Firebase';
+import { useFirebase, firebaseAuth } from '../context/Firebase';
+// import googleIcon from '../../public/googleIcon.png';
 
 
 export default function IntroPage() {
@@ -11,6 +12,7 @@ const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const history = useHistory();
 const firebase = useFirebase();
+const imageUrl = process.env.PUBLIC_URL + '/googleIcon.png';
 
 useEffect(() => {
   onAuthStateChanged(firebaseAuth, (user) => {
@@ -38,7 +40,7 @@ useEffect(() => {
         <h2>Sign In With</h2>
         <div className="socialSigninContainer h-flex">
           <button className='btn1'><i className="fab fa-facebook-square fa-lg m-r"></i>Facebook</button>
-          <button className='btn2' onClick={() => {firebase.googleSignIn()}}><img width="48" height="48" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>‎ ‎  Google</button>
+          <button className='btn2' onClick={() => {firebase.googleSignIn()}}>{<img src={imageUrl} alt="Google Icon" />}‎ ‎  Google</button>
           
         </div>
         <div className="emailForm v-flex">
