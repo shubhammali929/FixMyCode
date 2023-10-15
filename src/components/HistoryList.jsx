@@ -10,7 +10,7 @@ export default function HistoryList() {
   useEffect(() => {
     console.log("UseEffece 2 called");
     firebase.getHistory().then((history) => setHistory(history.docs));
-  },[]);
+  },[firebase]);
   return (
     <>
       <p className='historyLabel'>Your History :</p>

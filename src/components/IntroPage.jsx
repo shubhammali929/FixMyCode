@@ -31,7 +31,7 @@ useEffect(() => {
       firebase.setUser(null);
     }
   })
-},[]);
+},[history, firebase]);
 
   return (
     <div className='parentLogin'>
@@ -46,7 +46,7 @@ useEffect(() => {
         <div className="emailForm v-flex">
           <p className='p1'>Email</p>
           <input type="email" onChange={(e) => setEmail(e.target.value)} />
-          <p className='h-flex p1'>Password <a href='#'>Forgot?</a></p>
+          <p className='h-flex p1'> Password <p className='blue'> Forgot?</p></p>
           <input type="password" onChange={(e) => setPassword(e.target.value)}/>
           {firebase.user ? (        
               <button onClick={() => {firebase.logout();}}>Logout</button>           
@@ -55,7 +55,7 @@ useEffect(() => {
             <button onClick={() => {firebase.signup(email, password);}}>SignUp</button></>
           )}
         </div>
-        <p className='p3'>Not a member? <a href="">Sign up now</a> </p>
+        <p className='p3'>Not a member? <p className='blue'>Sign up now </p></p>
         <div className="nosignin">
         <p className='or'>or</p> <br /> 
         <p className='p4'><Link to="/dashboard" >Continue without signing in</Link></p>

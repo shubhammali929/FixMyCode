@@ -21,6 +21,9 @@
 {
   margin-right: 10px;
 }
+.blue{
+  color: blue;
+}
 .App {
   display: flex;
   height: 100vh;
