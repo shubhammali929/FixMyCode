@@ -1,6 +1,6 @@
 import {React, useState, useEffect} from 'react';
 import {onAuthStateChanged} from 'firebase/auth' //for firebase signin
-import {BrowserRouter as Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useFirebase, firebaseAuth } from '../context/Firebase';
 // import googleIcon from '../../public/googleIcon.png';
@@ -39,14 +39,14 @@ useEffect(() => {
         <h1>Welcome to FixMyCode</h1>
         <h2>Sign In With</h2>
         <div className="socialSigninContainer h-flex">
-          <button className='btn1'><i className="fab fa-facebook-square fa-lg m-r"></i>Facebook</button>
+          <button className='btn1'onClick={() => {alert("Under Development !! Please use Google or email signin")}}><i className="fab fa-facebook-square fa-lg m-r"></i>Facebook</button>
           <button className='btn2' onClick={() => {firebase.googleSignIn()}}>{<img src={imageUrl} alt="Google Icon" />}‎ ‎  Google</button>
           
         </div>
         <div className="emailForm v-flex">
           <p className='p1'>Email</p>
           <input type="email" onChange={(e) => setEmail(e.target.value)} />
-          <p className='h-flex p1'> Password <p className='blue'> Forgot?</p></p>
+          <p className='h-flex p1'> Password</p>
           <input type="password" onChange={(e) => setPassword(e.target.value)}/>
           {firebase.user ? (        
               <button onClick={() => {firebase.logout();}}>Logout</button>           
