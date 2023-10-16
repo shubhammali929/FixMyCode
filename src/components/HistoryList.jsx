@@ -8,9 +8,16 @@ export default function HistoryList() {
   const firebase = useFirebase();
   const [history, setHistory] = useState([]);
   useEffect(() => {
-    console.log("UseEffece 2 called");
-    firebase.getHistory().then((history) => setHistory(history.docs));
-  },[firebase]);
+    const fetchHistory = async () => {
+      if (firebase.user) {
+        const userId = firebase.user.uid;
+        const userHistory = await firebase.getHistory(userId);
+        setHistory(userHistory.docs);
+      }
+    };
+
+    fetchHistory();
+  }, [firebase.user]);
   return (
     <>
       <p className='historyLabel'>Your History :</p>

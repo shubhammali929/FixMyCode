@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { initializeApp } from "firebase/app";
 import {getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { getFirestore, collection, addDoc, getDocs, doc, getDoc } from "firebase/firestore";
+import {where,query, getFirestore, collection, addDoc, getDocs, doc, getDoc } from "firebase/firestore";
 const FirebaseContext = createContext(null);
 
 const firebaseConfig = {
@@ -30,9 +30,14 @@ const addToHistory = async(id, userName, data) => {
         code : data
     })
 }
-const getHistory = () => {
-    return getDocs(collection(firestore, 'History'));
+const getHistory = (userId) => {
+    const historyCollection = collection(firestore, 'History');
+    const userHistoryQuery = where('UID', '==', userId);
+    const userHistory = query(historyCollection, userHistoryQuery);
+
+    return getDocs(userHistory);
 }
+
 
 const getHistoryById = async (id) => {
     const docRef = doc(collection(firestore, 'History'), id);
