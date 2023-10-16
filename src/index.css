@@ -371,9 +371,9 @@ box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(../public/codingbg.jpg);
+  background-image: url(../public/bg.jpg);
   background-color: rgba(255, 255, 255, 0.5);
-  background-size: contain;
+  background-size:cover;
 }
 .mainLoginContainer{
   width: 30%;
@@ -382,15 +382,19 @@ box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
   padding: 30px;
   background-color: white;
   opacity: 1;
+  height: 85%;
+  height: fit-content;
+  /* width: fit-content; */
 }
 .mainLoginContainer h2{
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin-top: 20px;
+  margin-top: 10px;
+  width: 100%;
 }
 .mainLoginContainer h1{
-  font-size: 2rem;
+  font-size: 1.6rem;
   border-bottom: 2px solid #eee;
   text-align: center;
   font-family:cursive ;
@@ -407,15 +411,15 @@ box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
   padding: 10px 15px;
   border-radius: 10px;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
 
 }
 .socialSigninContainer button img{
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
 }
 .socialSigninContainer button i{
-  font-size: 30px;
+  font-size: 25px;
 
 }
 .socialSigninContainer .btn1{
@@ -443,7 +447,7 @@ box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
 }
 .emailForm button{
   width: 50%;
-  margin: 30px 0px 0px 25%;
+  margin: 10px 0px 0px 25%;
   padding: 10px;
   border-radius: 10px;
   background-color: #333333;
@@ -451,13 +455,8 @@ box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
   font-size: 1.3rem;
   
 }
-.emailForm a{
-  color: #333333;
-  margin-left: 10px;
-  font-size: 0.9rem;
-}
 .mainLoginContainer .or{
-  margin-top: 50px;
+  margin-top: 20px;
   font-size: 1.1rem;
   border-top: 2px solid rgb(145, 145, 145);
 }

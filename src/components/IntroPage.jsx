@@ -55,7 +55,6 @@ useEffect(() => {
             <button onClick={() => {firebase.signup(email, password);}}>SignUp</button></>
           )}
         </div>
-        <p className='p3'>Not a member? <p className='blue'>Sign up now </p></p>
         <div className="nosignin">
         <p className='or'>or</p> <br /> 
         <p className='p4'><Link to="/dashboard" >Continue without signing in</Link></p>
