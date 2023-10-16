@@ -74,7 +74,7 @@ export default function MainComponent() {
         let responseText = response.choices[0].text.trim();
         console.log(response);
         firebase.setTextValue(responseText);
-        
+        firebase.setApiResponseReceived(true);
         
         // Check if the user is logged in before adding to history
       if (firebase.user) {

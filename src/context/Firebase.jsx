@@ -49,6 +49,7 @@ const getHistoryById = async (id) => {
 export const FirebaseProvider = (props) => {
     const [user, setUser] = useState(null);
     const [textValue, setTextValue] = useState('');
+    const [apiResponseReceived, setApiResponseReceived] = useState(false);
     
     const signup = async (email, password) => {
         try{await createUserWithEmailAndPassword(firebaseAuth, email, password);
@@ -78,7 +79,7 @@ export const FirebaseProvider = (props) => {
           }
     }
     return (
-        <FirebaseContext.Provider value={{signup, login, googleSignIn, logout, addToHistory, user, setUser, getHistory, getHistoryById, textValue, setTextValue}}>
+        <FirebaseContext.Provider value={{signup, login, googleSignIn, logout, addToHistory, user, setUser, getHistory, getHistoryById, textValue, setTextValue , apiResponseReceived, setApiResponseReceived}}>
             {props.children}
         </FirebaseContext.Provider>
     )
