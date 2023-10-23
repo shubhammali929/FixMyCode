@@ -1,42 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,200&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.h-flex{
+.h-flex {
   display: flex;
 }
-.v-flex{
+.v-flex {
   display: flex;
   flex-direction: column;
 }
-.m-l
-{
+.m-l {
   margin-left: 10px;
 }
-.m-r
-{
+.m-r {
   margin-right: 10px;
 }
-.blue{
+.blue {
   color: blue;
 }
 .App {
   display: flex;
   height: 100vh;
-   /* background-image: url("/public/codingbg.jpg"); */
+  /* background-image: url("/public/codingbg.jpg"); */
   background-size: 20% 30%;
   background-repeat: repeat;
 }
-.dashboard{
+.dashboard {
   height: 95vh;
 }
 .sideBar {
   background-color: rgb(42, 42, 42);
-  
+
   width: 20%;
   padding: 20px 20px;
   height: 100%;
@@ -46,8 +44,6 @@
   background-color: rgb(77, 77, 77);
   width: 80%;
   height: 100%;
-  
- 
 }
 .navbar {
   background-color: black;
@@ -61,7 +57,7 @@
 .navbar .title {
   font-size: 20px;
   /* font-family: "Fuggles", cursive; */
-  font-family: 'Sedgwick Ave Display', cursive;
+  font-family: "Sedgwick Ave Display", cursive;
   letter-spacing: 3px;
 }
 .navbar .userIcon {
@@ -101,7 +97,7 @@
   width: 100%;
   height: 5%;
   justify-content: space-around;
-  padding: 0px 1.5rem ;
+  padding: 0px 1.5rem;
   /* margin-top: 25px; */
 }
 .button {
@@ -115,13 +111,11 @@
   background-color: #209978;
   overflow: hidden;
   border-radius: 5px;
-  
 }
 .button,
 .button__icon,
 .button__text {
   transition: all 0.3s;
-  
 }
 .button .button__text {
   transform: translateX(22px);
@@ -137,7 +131,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 .button i {
   width: 20px;
@@ -148,12 +141,10 @@
 }
 .button:hover .button__text {
   color: transparent;
-  
 }
 .button:hover .button__icon {
   width: 148px;
   transform: translateX(0);
-  
 }
 .button:active .button__icon {
   background-color: #146c54;
@@ -163,20 +154,20 @@
 }
 .CodeEditorMainClass {
   margin: 10px 5px 0px 5px;
-  padding: 0 10px ;
+  padding: 0 10px;
   height: 70%;
   padding: 1rem 1rem 0rem 1rem;
   /* overflow: auto;s */
   position: relative;
-  -webkit-box-shadow:0px 0px 0px 4px rgb(255, 255, 255);
--moz-box-shadow: 0px 0px 0px 4px rgb(255, 255, 255);
-box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
+  -webkit-box-shadow: 0px 0px 0px 4px rgb(255, 255, 255);
+  -moz-box-shadow: 0px 0px 0px 4px rgb(255, 255, 255);
+  box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
 }
-.CodeEditorMainClass p{
+.CodeEditorMainClass p {
   height: fit-content;
   z-index: 1;
 }
-.CodeEditorMainClass .box{
+.CodeEditorMainClass .box {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -210,7 +201,7 @@ box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
   height: 10%;
   /* border-radius: 10px; */
   /* font-family: "IBM Plex Mono", monospace; */
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
 }
 .CodeEditorMainClass textarea:focus {
   outline: none;
@@ -239,15 +230,15 @@ box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
   border-radius: 5px;
   font-size: 1.2rem;
   margin-top: 5%;
-  -webkit-box-shadow:0px 0px 0px 4px rgb(255, 255, 255);
--moz-box-shadow: 0px 0px 0px 4px rgb(255, 255, 255);
-box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
+  -webkit-box-shadow: 0px 0px 0px 4px rgb(255, 255, 255);
+  -moz-box-shadow: 0px 0px 0px 4px rgb(255, 255, 255);
+  box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
 }
 .historyTab i {
   margin-right: 10px;
   font-size: 0.9rem;
 }
-.nohistory{
+.nohistory {
   height: 80%;
   display: flex;
   align-items: center;
@@ -297,7 +288,6 @@ box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
   font-size: 1.3rem;
 }
 
-
 /* loading animation */
 .lds-ripple {
   display: inline-block;
@@ -346,12 +336,8 @@ box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
   }
 }
 
-
-
-
-
 /* ------------------IntroPage CSS--------------- */
-.parentLogin{
+.parentLogin {
   width: 100%;
   height: 100%;
   display: flex;
@@ -359,9 +345,9 @@ box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
   justify-content: center;
   background-image: url(../public/bg.jpg);
   background-color: rgba(255, 255, 255, 0.5);
-  background-size:cover;
+  background-size: cover;
 }
-.mainLoginContainer{
+.mainLoginContainer {
   width: 30%;
   border: 2px solid rgb(184, 184, 184);
   border-radius: 20px;
@@ -372,25 +358,25 @@ box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
   height: fit-content;
   /* width: fit-content; */
 }
-.mainLoginContainer h2{
+.mainLoginContainer h2 {
   text-align: center;
   font-size: 1.4rem;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin-top: 10px;
   width: 100%;
 }
-.mainLoginContainer h1{
+.mainLoginContainer h1 {
   font-size: 1.6rem;
   border-bottom: 2px solid #eee;
   text-align: center;
-  font-family:cursive ;
+  font-family: cursive;
 }
-.socialSigninContainer{
+.socialSigninContainer {
   display: flex;
   justify-content: space-around;
   padding: 15px 0px 0px 50px;
 }
-.socialSigninContainer button{
+.socialSigninContainer button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -398,40 +384,38 @@ box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
   border-radius: 10px;
   border: none;
   font-size: 1rem;
-
 }
-.socialSigninContainer button img{
+.socialSigninContainer button img {
   height: 30px;
   width: 30px;
 }
-.socialSigninContainer button i{
+.socialSigninContainer button i {
   font-size: 25px;
-
 }
-.socialSigninContainer .btn1{
+.socialSigninContainer .btn1 {
   background-color: #3b5998;
   color: white;
   display: flex;
   justify-content: space-between;
   /* width: calc(fit-content + 120px); */
 }
-.emailForm p{
+.emailForm p {
   font-size: 1.2rem;
   margin-top: 20px;
   display: flex;
   align-items: center;
 }
-.emailForm .p1{
+.emailForm .p1 {
   font-size: 1.2rem;
 }
-.emailForm input{
+.emailForm input {
   padding: 5px;
   border-radius: 10px;
   margin-top: 10px;
   font-size: 1rem;
   border: 2px solid #7c7c7c;
 }
-.emailForm button{
+.emailForm button {
   width: 50%;
   margin: 10px 0px 0px 25%;
   padding: 10px;
@@ -439,34 +423,21 @@ box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.23);
   background-color: #333333;
   color: white;
   font-size: 1.3rem;
-  
 }
-.mainLoginContainer .or{
+.mainLoginContainer .or {
   margin-top: 20px;
   font-size: 1.1rem;
   border-top: 2px solid rgb(145, 145, 145);
 }
-.mainLoginContainer .p3{
+.mainLoginContainer .p3 {
   margin-top: 20px;
   font-size: 1.1rem;
 }
-.mainLoginContainer .p4{
+.mainLoginContainer .p4 {
   font-size: 1.1rem;
 }
-.mainLoginContainer p{
+.mainLoginContainer p {
   text-align: center;
   /* font-size: large; */
   /* margin-top: 20px; */
 }
-
-
-
-
-
-
-
-
-
-
-
-
