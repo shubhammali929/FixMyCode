@@ -21,6 +21,7 @@
 }
 .blue {
   color: blue;
+  cursor: pointer;
 }
 .App {
   display: flex;

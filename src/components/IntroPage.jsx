@@ -10,6 +10,7 @@ export default function IntroPage() {
 
 const [email, setEmail] = useState(""); 
 const [password, setPassword] = useState("");
+const [login, showLogin] = useState(true);
 const history = useHistory();
 const firebase = useFirebase();
 const imageUrl = process.env.PUBLIC_URL + '/googleIcon.png';
@@ -48,12 +49,26 @@ useEffect(() => {
           <input type="email" onChange={(e) => setEmail(e.target.value)} />
           <p className='h-flex p1'> Password</p>
           <input type="password" onChange={(e) => setPassword(e.target.value)}/>
-          {firebase.user ? (        
-              <button onClick={() => {firebase.logout();}}>Logout</button>           
-          ) : ( <>
-            <button onClick={() => {firebase.login(email, password);}}>Login</button>
-            <button onClick={() => {firebase.signup(email, password);}}>SignUp</button></>
-          )}
+          {firebase.user ? (
+  <button onClick={() => {firebase.logout();}}>Logout</button>
+) : (
+  <>
+    {login ? (
+      <>
+      <button onClick={() => {firebase.login(email, password);}}>Login</button>
+      <p>Don't have an account? <span onClick={() => showLogin(!login)} className='blue'>  Continue to Signup</span>.</p>
+      </>
+    ) : (
+      <>
+      <button onClick={() => {firebase.signup(email, password);}}>SignUp</button>
+      <p>Already have an account? <span onClick={() => showLogin(!login)} className='blue'>Continue to login</span>.</p>
+      </>
+    )}
+    
+  </>
+)}
+
+
         </div>
         <div className="nosignin">
         <p className='or'>or</p> <br /> 

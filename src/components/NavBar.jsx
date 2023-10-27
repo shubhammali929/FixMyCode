@@ -19,7 +19,12 @@ const handleUserIconClick = () => {
     <div className='navbar'>
       <div className="infoIcon" onClick={() => {alert("Welcome to FixMyCode! Your go-to platform for instant code improvement. Simply enter your code, choose from various optimization options, and let our advanced AI assist you in enhancing your code quality. Experience hassle-free coding with FixMyCode, where innovation meets efficiency")}}><i className="fa-solid fa-circle-info"></i></div> 
       <span className='title'>FixMyCode...</span>
-      <div className="userIcon" onClick={handleUserIconClick}>LOGOUT <i className="fa-solid fa-right-from-bracket" ></i></div> 
+      
+      {firebase.user ? (
+        <div className="userIcon" onClick={handleUserIconClick}>LOGOUT <i className="fa-solid fa-right-from-bracket" ></i></div> 
+      ) : (
+        <div></div>
+      )}
     </div>
   )
 }
