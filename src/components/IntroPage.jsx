@@ -46,9 +46,9 @@ useEffect(() => {
         </div>
         <div className="emailForm v-flex">
           <p className='p1'>Email</p>
-          <input type="email" onChange={(e) => setEmail(e.target.value)} />
-          <p className='h-flex p1'> Password</p>
-          <input type="password" onChange={(e) => setPassword(e.target.value)}/>
+          <input type="email"  onChange={(e) => setEmail(e.target.value)}  required/>
+          <p className='h-flex p1' > Password</p>
+          <input type="password"  onChange={(e) => setPassword(e.target.value)}  required/>
           {firebase.user ? (
   <button onClick={() => {firebase.logout();}}>Logout</button>
 ) : (
