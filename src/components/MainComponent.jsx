@@ -50,7 +50,6 @@ export default function MainComponent() {
   const getChatResponse = async (text) => {
     const API_KEY = process.env.REACT_APP_API_KEY;
     const API_URL = "https://api.openai.com/v1/completions";
-
     // Define the properties and data for the API request
     const requestOptions = {
         method: "POST",
