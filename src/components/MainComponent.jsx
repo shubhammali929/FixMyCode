@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import InputComponent from './InputComponent'
 import CodeEditor from './CodeEditor'
-import CodeEditor2 from './CodeEditor2'
 import Buttons from './Buttons'
 import { useFirebase} from '../context/Firebase';
 export default function MainComponent() {
