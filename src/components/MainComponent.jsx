@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import InputComponent from './InputComponent'
 import CodeEditor from './CodeEditor'
+import CodeEditor2 from './CodeEditor2'
 import Buttons from './Buttons'
 import { useFirebase} from '../context/Firebase';
 export default function MainComponent() {
@@ -49,54 +50,60 @@ export default function MainComponent() {
   //sending prompt to api and receiving response
   const getChatResponse = async (text) => {
     const API_KEY = process.env.REACT_APP_API_KEY;
-    const API_URL = "https://api.openai.com/v1/completions";
+    const API_URL = "https://api.openai.com/v1/chat/completions"; // Update the API URL
+  
     // Define the properties and data for the API request
     const requestOptions = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${API_KEY}`
-        },
-        body: JSON.stringify({
-            model: "text-davinci-003",
-            prompt: text,
-            max_tokens: 2048,
-            temperature: 0.2,
-            n: 1,
-            stop: null
-        })
-    }
-
-    // Send POST request to API, get response 
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${API_KEY}`
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo", // Change the model name to gpt-3.5-turbo
+        messages: [
+          {
+            role: "system",
+            // content: "Explain things like you're talking to a software professional with 2 years of experience."
+            // content: "Just replace the code by doing the modifications as said"
+            content: "Generate a corrected version of the code with improvements. Focus on providing code changes only and avoid unnecessary titles and descriptions or explanations."
+          },
+          {
+            role: "user",
+            content: text
+          }
+        ]
+      })
+    };
+  
+    // Send POST request to API, get response
     try {
-        const response = await (await fetch(API_URL, requestOptions)).json();
-        let responseText = response.choices[0].text.trim();
-        console.log(response);
-        firebase.setTextValue(responseText);
-        firebase.setApiResponseReceived(true);
-        
-        // Check if the user is logged in before adding to history
+      const response = await (await fetch(API_URL, requestOptions)).json();
+      let responseText = response.choices[0].message.content.trim();
+      console.log(response);
+      firebase.setTextValue(responseText);
+      firebase.setApiResponseReceived(true);
+  
+      // Check if the user is logged in before adding to history
       if (firebase.user) {
         const userName = firebase.user?.displayName || firebase.user?.email;
         console.log('HEY ! ' + userName);
         console.log(firebase.user);
         firebase.addToHistory(firebase.user.uid, userName, responseText);
       }
-
-
-
-    } catch (error) { // Add error class to the paragraph element and set error text
-      
+    } catch (error) {
       console.log(error);
     } finally {
-      setIsAnimating(false); // Stop animation when response is received
+      setIsAnimating(false); // Stop animation when the response is received
     }
+  
   };
 
   
   return (
     <div className='mainComponent'>
         <CodeEditor  isAnimating={isAnimating}/> <br />
+        {/* <CodeEditor2 isAnimating={isAnimating} /> <br/> */}
         <Buttons fixBug={fixBug} optimise={optimise} addComments={addComments} changeVar={changeVar} fixIndentation={fixIndentation}/>
       <InputComponent customCmdText={customCmdText} setCustomCmdText={setCustomCmdText} runCustomCmd={runCustomCmd}/>
     </div>
