@@ -7,7 +7,7 @@ export default function User() {
   return (
     <div className='user'>
      <i className="fa-solid fa-user"></i> 
-     <span>{firebase.user?userName:"TempUSer"}</span>
+     <span>{firebase.user?userName:"TempUser"}</span>
     
     </div>
   )
