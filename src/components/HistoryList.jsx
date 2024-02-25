@@ -31,7 +31,7 @@ export default function HistoryList() {
             <History
               key={hist.id}
               id={hist.id}
-              text={hist.data().code.substring(0, 30) + " ... "}
+              text={hist.data().code.substring(0, 50) + " ... "}
             />
           ))}
         </div>
