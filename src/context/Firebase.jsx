@@ -5,7 +5,7 @@ import {where,query, getFirestore, collection, addDoc, getDocs, doc, getDoc } fr
 const FirebaseContext = createContext(null);
 
 const firebaseConfig = {
-    apiKey: "AIzaSyD5LYNJtBG6iBg8RVzpDWmyO3AO3l39kaI",
+    apiKey: process.env.REACT_APP_FIREBASE_KEY,
     authDomain: "fixmycode1.firebaseapp.com",
     projectId: "fixmycode1",
     storageBucket: "fixmycode1.appspot.com",
